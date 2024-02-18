@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'Brahmam/maven-Brahmam-docker-agent:v1'
+      image 'bannukondeti/maven-bannukondeti-docker-agent:v1'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "Brahmam/ultimate-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "bannukondeti/ultimate-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
@@ -48,7 +48,7 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "java-maven-sonar-agrocd-helm-k8s"
-            GIT_USER_NAME = "kondetipbhm@gmail.com"
+            GIT_USER_NAME = "kondetiparabrahmam"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
