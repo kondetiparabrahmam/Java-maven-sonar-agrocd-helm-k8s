@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
 
-        git branch: 'main', url: ''
+        git branch: 'main', url: 'java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile'
       }
     }
     stage('Build and Test') {
