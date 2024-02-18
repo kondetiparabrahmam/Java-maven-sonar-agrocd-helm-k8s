@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
        
-        git branch: 'main', url: 'https://github.com/krishkprawat/Jenkins-Zero-To-Hero.git'
+        git branch: 'main', url: 'https://github.com/kondetiparabrahmam/Java-maven-sonar-agrocd-helm-k8s.git'
       }
     }
     stage('Build and Test') {
